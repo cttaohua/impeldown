@@ -53,7 +53,7 @@ class ImpelDown {
 
     req.send(null)
 
-    req.addEventListener('loadstart',this.onStart.bind(this), false)
+    this.onStart.bind(this)
     req.addEventListener('progress',this.onProgress.bind(this), false)
     req.addEventListener('abort',this.onAbort.bind(this), false)
     req.addEventListener('load',this.onSuccess.bind(this), false)
