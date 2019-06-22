@@ -84,7 +84,7 @@ class ImpelDown {
   // 下载成功
   onSuccess () {
     this.params.onSuccess ? this.params.onSuccess() : null
-    this.params.onProgress(1)  // 结束之后再次调用进度方法
+    this.params.onProgress ? this.params.onProgress(1) : null  // 结束之后再次调用进度方法
   }
   // 下载结束 （成功失败都会调用）
   onComplete () {
