@@ -1,3 +1,2 @@
-import "babel-polyfill"
-module.exports = require('./src/index');
-exports.default = require('./src/index');
+import impeldown from './src/index'
+export default impeldown
