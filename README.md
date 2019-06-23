@@ -2,14 +2,14 @@
 一个浏览器端下载插件，可以监听下载进度，没有依赖任何第三方框架，压缩后大小仅4kb，小巧方便，使用灵活
 
 # 演示地址
-* <https://taohuayuanskill.com/demo/impeldown>
+* <http://demo.taohuayuanskill.com/#/impeldown>
 
 # 使用注意
 * 受到浏览器同源策略的限制，impeldown无法下载跨域资源，只能下载本域资源或者服务端开启CORS
 * 服务端返回的Response Headers必须包含Content-Length，否则无法监听到下载进度，但是可以正常下载
 
 # 安装
-```
+```JavaScript
 npm 的方式
 npm install impeldown --save
 或
