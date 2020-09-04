@@ -3,56 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="./dist/impeldown.min.js"></script>
     <style>
-        .btn {
-            width: 200px;
-            height: 200px;
-            line-height: 200px;
-            display: block;
-            background: yellowgreen;
-            float: left;
-            margin-left: 50px;
+        h1 {
             text-align: center;
         }
     </style>
 </head>
 <body>
-    <div id="a1" class="btn" data-filename="1.png">下载</div>
-    <div id="progressing"></div>
-    <script>
-        var a = document.querySelector('#a1')
-        a.addEventListener('click',function(){
-            new impeldown({
-                url: 'https://taohuayuanskill.com/uploadImg/cover/97526.png',
-                // 开始下载
-                onStart: function() {
-                    console.log('开始')
-                },
-                // 监听进度
-                onProgress: function(p) {
-                    console.log(p)
-                },
-                // 被用户中止下载
-                onAbort: function() {
-                    console.log('2')
-                },
-                // 传输中出现错误
-                onError: function() {
-                    console.log('3')
-                },
-                // 下载成功
-                onSuccess: function() {
-                    console.log('4')
-                },
-                // 下载结束 （成功失败都会调用）
-                onComplete: function() {
-                    console.log('5')
-                }
-            })
-        })
-
-    </script>
-
+    <h1>welcome to impeldown</h1>
 </body>
 </html>
