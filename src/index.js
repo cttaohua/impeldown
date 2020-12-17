@@ -1,4 +1,5 @@
 import { intitle } from './name.js'
+import { saveAs } from 'file-saver'
 class ImpelDown {
   constructor (params) {
     try {
@@ -36,18 +37,8 @@ class ImpelDown {
         } else {
           filename = intitle(this.params.url, req.response)
         }
-        if (typeof window.chrome !== 'undefined') {  // Chrome version
-          let link = document.createElement('a')
-          link.href = window.URL.createObjectURL(req.response)
-          link.download = filename
-          link.click()
-        } else if (typeof window.navigator.msSaveBlob !== 'undefined') {  // IE version
-          let blob = new Blob([req.response], { type: 'application/force-download' })
-          window.navigator.msSaveBlob(blob, filename)
-        } else {  // Firefox version
-          let file = new File([req.response], filename, { type: 'application/force-download' });
-          window.open(URL.createObjectURL(file));
-        }
+        let blob = new Blob([req.response], { type: 'application/force-download' })
+        saveAs(blob, filename)
       }
     }
 
