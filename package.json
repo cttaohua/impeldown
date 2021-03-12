@@ -1,6 +1,6 @@
 {
   "name": "impeldown",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "前端 JavaScript 下载插件",
   "main": "dist/impeldown.min.js",
   "scripts": {

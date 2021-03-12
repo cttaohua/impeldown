@@ -10,12 +10,14 @@ class ImpelDown {
         this.params = {
           url: params
         }
+        this.req = new XMLHttpRequest()
         this.createXML()
       } else if (typeof params === 'object') {
         if (!params.url) {
           throw new Error('The url is a required parameter！')
         }
         this.params = params
+        this.req = new XMLHttpRequest()
         this.createXML()
       } else {
         throw new Error('The argument is expected to be in the format of a string or object！')
@@ -26,7 +28,7 @@ class ImpelDown {
   }
   createXML () {
     let resource_url = this.params.url
-    let req = new XMLHttpRequest()
+    let req = this.req
     req.open("GET", resource_url, true)
     req.responseType = 'blob'
     req.onreadystatechange = () => {
@@ -51,6 +53,20 @@ class ImpelDown {
     req.addEventListener('loadend',this.onComplete.bind(this), false)
 
   }
+
+  // 取消下载
+  abort () {
+    if (this.req) {
+      try {
+        this.req.abort()
+      } catch (e) {
+        console.warn('Nothing can be cancelled！')
+        return false
+      }
+    }
+    return true
+  }
+
   // 开始下载
   onStart () {
     this.params.onStart ? this.params.onStart() : null
@@ -80,6 +96,7 @@ class ImpelDown {
   // 下载结束 （成功失败都会调用）
   onComplete () {
     this.params.onComplete ? this.params.onComplete() : null
+    this.req = null // 下载结束后重置req对象
   }
 }
 

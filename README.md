@@ -55,6 +55,13 @@ new impeldown({
   }
 })
 ```
+- 可以调用abort方法来中止下载
+```JavaScript
+const download = new impeldown('https://taohuayuanskill.com/uploadImg/cover/97526.png')
+setTimeout(() => {
+  download.abort() // 2s之后中止下载
+}, 1000)
+```
 
 ## 注意事项
 如果没有定义name的话，impeldown会自动默认下载的文件名为静态资源的文件名，但是如果下载路径不是静态资源，而是动态生成的文件的话，impeldown会设置文件名为8位的随机字符串加文件后缀名。
